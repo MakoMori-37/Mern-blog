@@ -1,0 +1,15 @@
+.footer{
+    background-color: #344;
+    height: 40px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: whitesmoke;
+    display: flex;
+    align-items: center;
+}
+
+.footer > p {
+    margin-left:  30px;
+}

@@ -1,0 +1,38 @@
+.news{
+    display: block;
+    text-align: center;
+    margin: 5% 5%;
+}
+
+.news > h2 {
+    margin-bottom: 2%;
+}
+
+.news > p{
+    margin-top: 2%;
+        
+
+}
+
+.news > span {
+    margin-bottom: 10px;
+    background-color: rgb(190, 190, 190);
+    border-radius: 10px;
+}
+
+
+.dummy > a{
+    background-color: blue;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 30px;
+}
+
+.dummy {
+    display: block;
+    text-align: center;
+}
+

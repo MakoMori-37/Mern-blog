@@ -1,0 +1,51 @@
+.addblog{
+    display: block;
+    margin-top: 1%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.addblog > h2 {
+  margin-bottom: 1%;
+}
+
+.addblog > input {
+    height: 35px;
+    width: 250px;
+    border-radius: 5px;
+}
+
+.addblog > textarea {
+    height: 150px;
+    width: 500px;
+    border-radius: 5px;
+
+}
+
+.addblog > label {
+    font-weight: 600;
+}
+
+
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: gray;
+    font-size: large;
+    text-align: center;
+    align-items: center;
+    display: flex;
+}
+
+.addblog > button{
+    margin-top: 2%;
+    padding: 10px;
+    font-size: 16px;
+    width: 100px;
+    border-radius: 20px;
+    background-color: green;
+}
+
+.addblog :focus{
+    outline: none;
+}
