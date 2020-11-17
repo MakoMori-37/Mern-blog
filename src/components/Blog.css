@@ -5,6 +5,14 @@
    
 }
 
+.blogcon > img {
+    width: 25%;
+    height: 10%;
+    border-radius:  5px;
+    object-fit: cover;
+    place-content: center;
+}
+
 .spin {
     width: 100%;
 }

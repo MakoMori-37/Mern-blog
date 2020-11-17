@@ -42,8 +42,7 @@ router.put('/update/:id', upload.single('blogimage'), (req, res) => {
         blogs.content = req.body.content;
         blogs.blogimage = req.file.originalname;
 
-        blogs
-        .save()
+        blogs.save()
         .then(() => res.json('UPDATE SUCCESSFULY!'))
         .catch(err => res.status(400).json(`Error : ${err}`))
     })

@@ -11,9 +11,9 @@
 
 }
 
-.box1 > img {
-    height: 30px;
-    width: 30px;
+.logo {
+    height: 30px ;
+    width: 30px  ;
     border-radius: 50%;
     margin-left: 20px;
 

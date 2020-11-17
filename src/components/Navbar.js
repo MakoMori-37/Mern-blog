@@ -6,7 +6,12 @@ function Navbar() {
   return (
     <div className="navbar">
       <div className="box1">
-          <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSjRbibgkZGGA6KyEAfVPJ7pE3-xYe29z6-UA&usqp=CAU'  alt='' />
+        <Link to='/' >
+
+          <img className='logo' src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSjRbibgkZGGA6KyEAfVPJ7pE3-xYe29z6-UA&usqp=CAU'  alt='' />
+        
+        </Link>
+
       </div>
       <div className="box2">
 

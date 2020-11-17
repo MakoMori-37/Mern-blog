@@ -7,7 +7,7 @@ const Editblog = (props) => {
   const [author, setAuthor] = useState("");
   const [content, setContent] = useState("");
   const [filename, setFilename] = useState("");
-  const [msg, setMsg] = useState("");
+  const [mas, setMas] = useState("");
 
   const onChangeFile = (e) => {
     setFilename(e.target.files[0]);
@@ -23,19 +23,13 @@ const Editblog = (props) => {
     formData.append("content", content);
     formData.append("blogimage", filename);
 
-   
     axios
-      .put(`/blogs/update/${props.match.params.id}` , formData)
-      .then((res) => setMsg(res.data))
+      .put(`/blogs/update/${props.match.params.id}`, formData)
+      .then((res) => setMas(res.data))
       .catch((err) => {
         console.log(err);
       });
-
-
-
   };
-
-
 
   useEffect(() => {
     axios
@@ -44,7 +38,7 @@ const Editblog = (props) => {
         setTitle(res.data.title),
         setAuthor(res.data.author),
         setContent(res.data.content),
-        setFilename(res.data.blogimage)
+        setFilename(res.data.blogimage),
       ])
       .catch((err) => console.log(err));
   }, [`${props.match.params.id}`]);
@@ -56,8 +50,9 @@ const Editblog = (props) => {
       className="addblog"
     >
       <h2>EDIT BLOG</h2>
-      <p className="altt">{msg}</p>
+      <span>{mas}</span>
       <br />
+
       <label>TITLE</label>
       <br />
       <input
@@ -67,7 +62,7 @@ const Editblog = (props) => {
         placeholder="title"
       />
       <br />
-      <br />
+
       <label>AUTHOR</label>
       <br />
       <input
@@ -77,7 +72,7 @@ const Editblog = (props) => {
         placeholder="author"
       />
       <br />
-      <br />
+
       <label>CONTENT</label>
       <br />
       <textarea

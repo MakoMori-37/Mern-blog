@@ -27,9 +27,14 @@
     font-weight: 600;
 }
 
+.addblog > span{
+    color: rgb(245, 22, 22);
+    font-weight: 800;
+}
 
 
-::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+
+::-webkit-input-placeholder { 
     color: gray;
     font-size: large;
     text-align: center;
@@ -44,6 +49,7 @@
     width: 100px;
     border-radius: 20px;
     background-color: green;
+    color: white;
 }
 
 .addblog :focus{
