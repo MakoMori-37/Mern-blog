@@ -1,6 +1,19 @@
 const express = require('express');
 const router = express.Router();
 const blog = require('../models/blogModel')
+const multer = require('multer')
+
+
+const storage = multer.diskStorage({
+    destination: (req, file, callback) => {
+        callback(null, '../public/uploads/')
+    },
+    filename: (req, file, callback) => {
+        callback(null, file.originalname)
+    }
+})
+
+const upload = multer({storage:storage});
 
 router.get('/', (req, res) => {
     blog.find()
@@ -8,24 +21,26 @@ router.get('/', (req, res) => {
     .catch(err => res.status(400).json(`Error ${err}`))
 })
 
-router.post('/add', (req, res) => {
+router.post('/add', upload.single('blogimage'), (req, res) => {
     const newBlogs = new blog({
         title: req.body.title,
         author: req.body.author,
         content: req.body.content,
+        blogimage: req.file.originalname
     })
-
+ 
     newBlogs.save()
     .then(() => res.json('POST SUCCESSFULY!'))
     .catch(err => res.status(400).json(`Error : ${err}`))
 })
 
-router.put('/update/:id', (req, res) => {
+router.put('/update/:id', upload.single('blogimage'), (req, res) => {
     blog.findById(req.params.id)
-    .then(blogs => {
+    .then((blogs) => {
         blogs.title = req.body.title;
         blogs.author = req.body.author;
         blogs.content = req.body.content;
+        blogs.blogimage = req.file.originalname;
 
         blogs
         .save()

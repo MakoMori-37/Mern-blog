@@ -13,7 +13,7 @@ app.use(express.json());
 const uri = process.env.ATLAS_URI;
 
 mongoose.connect(uri, {
-    
+    useCreateIndex:true,
     useNewUrlParser: true,
     useUnifiedTopology: true
     

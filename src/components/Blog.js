@@ -18,8 +18,9 @@ function Blog({ post }) {
       {post.map((blogs, key) => (
    
         <div className="blogcon" key={key} >
+          <img src={`/uploads/${blogs.blogimage}` } alt='...' />
           <Link to={{
-            pathname: `/blogs/${blogs._id}`
+            pathname: `/blogs/${blogs._id}`,
           }} >
           <h1>{blogs.title}</h1>
           

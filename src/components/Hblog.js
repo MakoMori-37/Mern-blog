@@ -7,6 +7,8 @@ const Hblog = props => {
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [content, setContent] = useState("");
+  const [filename, setFilename] = useState("");
+  
 
   useEffect(() => {
     axios
@@ -14,7 +16,8 @@ const Hblog = props => {
       .then(res => [
         setTitle(res.data.title),
         setAuthor(res.data.author),
-        setContent(res.data.content)
+        setContent(res.data.content),
+        setFilename(res.data.blogimage)
       ])
       .catch(err => console.log(err));
   }, [props]);
@@ -25,6 +28,7 @@ const Hblog = props => {
     <div className='dummy' >
       {
       <div className='news' >
+      <img src={`/uploads/${filename}`}  alt='' />
       <h2>{title}</h2>
       <span> - {author} - </span>
       <p>{content}</p>

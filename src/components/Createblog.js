@@ -6,23 +6,30 @@ function Createblog() {
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [content, setContent] = useState("");
+  const [filename, setFilename] = useState("");
   const [msg, setMsg] = useState("");
 
+  const onChangeFile = (e) => {
+    setFilename(e.target.files[0])
+  } 
+  
   const sentOnclick = (e) => {
     e.preventDefault();
+    
+    const formData = new FormData();
 
-    const blog = {
-      title,
-      author,
-      content,
-    };
+    formData.append('title', title);
+    formData.append('author', author);
+    formData.append('content', content);
+    formData.append('blogimage', filename);
+
 
     setTitle("");
     setAuthor("");
     setContent("");
 
     axios
-      .post("/blogs/add", blog)
+      .post("/blogs/add", formData)
       .then((res) => setMsg(res.data))
       .catch((err) => console.log(err));
   };
@@ -65,6 +72,12 @@ function Createblog() {
         placeholder="content"
         className='txtaa'
       />
+      <div>
+        <label htmlFor='file' >Choose Image</label>
+        <input type='file' filename='blogimage'
+        onChange={onChangeFile}
+        />
+      </div>
       <br />
       <button type="submit">Submit</button>
     </form>
